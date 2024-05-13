@@ -8,20 +8,29 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left">
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" :width="270">
       <q-icon
         name="fa-solid fa-dove"
         size="lg"
         color="primary"
         class="q-pa-md"
       ></q-icon>
-      <q-list bordered>
-        <q-item clickable v-ripple>
+      <q-list>
+        <q-item clickable v-ripple to="/">
           <q-item-section avatar>
-            <q-icon color="primary" name="bluetooth" />
+            <q-icon name="home" size="md" />
           </q-item-section>
 
-          <q-item-section>Icon as avatar</q-item-section>
+          <q-item-section class="text-h6 text-weight-bold">Home</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/about">
+          <q-item-section avatar>
+            <q-icon name="help" size="md" />
+          </q-item-section>
+
+          <q-item-section class="text-h6 text-weight-bold"
+            >About</q-item-section
+          >
         </q-item>
       </q-list>
     </q-drawer>
