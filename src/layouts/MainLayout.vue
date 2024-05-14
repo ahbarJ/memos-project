@@ -50,16 +50,53 @@
       <q-list padding>
         <q-item>
           <q-item-section>
-            <q-item-label overline>OVERLINE</q-item-label>
-            <q-item-label>Single line item</q-item-label>
+            <q-item-label overline class="text-grey"
+              >2024 Election</q-item-label
+            >
+            <q-item-label class="text-weight-bold"
+              >Trump getting re-elected?</q-item-label
+            >
             <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
-              adipiscit elit.</q-item-label
+              >Initial report from trusted sources indicate that Trump might
+              have a shot at presidency.</q-item-label
             >
           </q-item-section>
 
           <q-item-section side top>
             <q-item-label caption>5 min ago</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item>
+          <q-item-section>
+            <q-item-label overline class="text-grey">Oil Price</q-item-label>
+            <q-item-label class="text-weight-bold"
+              >Heated exchange between Iran and Israel</q-item-label
+            >
+            <q-item-label caption
+              >Oil prices on the rise as the two sworn enemies start to exchange
+              missiles.</q-item-label
+            >
+          </q-item-section>
+
+          <q-item-section side top>
+            <q-item-label caption>17 min ago</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item>
+          <q-item-section>
+            <q-item-label overline class="text-grey">Student Debt</q-item-label>
+            <q-item-label class="text-weight-bold"
+              >Biden pays the student debt</q-item-label
+            >
+            <q-item-label caption
+              >President Biden pays for the college intuition of many students
+              in debt, declaring that the education in America should be free
+              for all.</q-item-label
+            >
+          </q-item-section>
+
+          <q-item-section side top>
+            <q-item-label caption>23 min ago</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
