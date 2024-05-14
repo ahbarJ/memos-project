@@ -36,7 +36,17 @@
     </q-drawer>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right">
-      <!-- drawer content -->
+      <q-input
+        outlined
+        rounded
+        class="q-ma-md"
+        placeholder="Search Memos"
+        dense
+      >
+        <template v-slot:prepend>
+          <q-icon name="event" />
+        </template>
+      </q-input>
     </q-drawer>
 
     <q-page-container>
