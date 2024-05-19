@@ -4,7 +4,15 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title class="text-weight-bold"> Memos </q-toolbar-title>
+        <q-toolbar-title class="text-weight-bold">
+          <span class="gt-sm">Memos</span>
+          <q-icon
+            name="fa-solid fa-dove"
+            size="sm"
+            color="primary"
+            class="q-pa-md lt-md absolute-center"
+          ></q-icon>
+        </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
