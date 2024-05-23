@@ -5,7 +5,7 @@
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title class="text-weight-bold">
-          <span class="gt-sm">Memos</span>
+          <span class="gt-sm">{{ $route.name }}</span>
           <q-icon
             name="fa-solid fa-dove"
             size="sm"
@@ -121,7 +121,7 @@ import axios from "axios";
 import { ref } from "vue";
 
 export default {
-  mounted() {
+  /*mounted() {
     axios
       .get("http://localhost:3000/users")
       .then((response) => {
@@ -132,7 +132,7 @@ export default {
         // Handle error
         console.error(error);
       });
-  },
+  },*/
   setup() {
     const leftDrawerOpen = ref(false);
     const rightDrawerOpen = ref(false);
