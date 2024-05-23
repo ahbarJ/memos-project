@@ -24,14 +24,14 @@
         class="q-pa-md"
       ></q-icon>
       <q-list>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable v-ripple to="/" exact>
           <q-item-section avatar>
             <q-icon name="home" size="md" />
           </q-item-section>
 
           <q-item-section class="text-h6 text-weight-bold">Home</q-item-section>
         </q-item>
-        <q-item clickable v-ripple to="/about">
+        <q-item clickable v-ripple to="/about" exact>
           <q-item-section avatar>
             <q-icon name="help" size="md" />
           </q-item-section>
@@ -117,9 +117,22 @@
 </template>
 
 <script>
+import axios from "axios";
 import { ref } from "vue";
 
 export default {
+  mounted() {
+    axios
+      .get("http://localhost:3000/users")
+      .then((response) => {
+        // Handle success
+        console.log(response);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  },
   setup() {
     const leftDrawerOpen = ref(false);
     const rightDrawerOpen = ref(false);

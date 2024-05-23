@@ -1,9 +1,11 @@
 <template>
-  <q-page class="flex flex-center"> </q-page>
+  <q-page>
+    <h3>We're home.</h3>
+  </q-page>
 </template>
 
 <script setup>
 defineOptions({
-  name: "IndexPage",
+  name: "PageHome",
 });
 </script>
