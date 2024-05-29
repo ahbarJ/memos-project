@@ -57,7 +57,7 @@ const contacts = [
   {
     id: 3,
     name: "Reza Sheikhlar",
-    git: "https://github.com/Farzan-Kh",
+    git: "https://github.com/rezdev-10",
     letter: "R",
   },
   {
