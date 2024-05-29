@@ -7,13 +7,7 @@
     <h5>Supervisor: Dr. Ehsan Shoja</h5>
     <h6>Development team</h6>
     <q-list bordered>
-      <q-item
-        v-for="contact in contacts"
-        :key="contact.id"
-        class="q-my-sm"
-        clickable
-        v-ripple
-      >
+      <q-item v-for="contact in contacts" :key="contact.id" class="q-my-sm">
         <q-item-section avatar>
           <q-avatar color="primary" text-color="white">
             {{ contact.letter }}
@@ -21,38 +15,23 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label>{{ contact.name }}</q-item-label>
-          <q-item-label caption lines="1">{{ contact.email }}</q-item-label>
+          <q-item-label
+            >{{ contact.name }} - {{ contact.student_no }} :
+            {{ contact.field }}</q-item-label
+          >
+          <q-item-label caption lines="1">{{ contact.git }}</q-item-label>
         </q-item-section>
 
         <q-item-section side>
-          <q-icon name="chat_bubble" color="green" />
-        </q-item-section>
-      </q-item>
-
-      <q-separator />
-      <q-item-label header>Offline</q-item-label>
-
-      <q-item
-        v-for="contact in offline"
-        :key="contact.id"
-        class="q-mb-sm"
-        clickable
-        v-ripple
-      >
-        <q-item-section avatar>
-          <q-avatar>
-            <img :src="`https://cdn.quasar.dev/img/${contact.avatar}`" />
-          </q-avatar>
-        </q-item-section>
-
-        <q-item-section>
-          <q-item-label>{{ contact.name }}</q-item-label>
-          <q-item-label caption lines="1">{{ contact.email }}</q-item-label>
-        </q-item-section>
-
-        <q-item-section side>
-          <q-icon name="chat_bubble" color="grey" />
+          <q-icon
+            name="open_in_new"
+            color="green"
+            @click="openGithubPage(contact.git)"
+          >
+            <q-tooltip>
+              Open {{ contact.name }}'s Github page
+            </q-tooltip></q-icon
+          >
         </q-item-section>
       </q-item>
     </q-list>
@@ -63,51 +42,48 @@
 const contacts = [
   {
     id: 1,
-    name: "Ruddy Jedrzej",
-    email: "rjedrzej0@discuz.net",
-    letter: "R",
+    name: "Akbar Jalili",
+    git: "https://github.com/ahbarJ",
+    student_no: "1400442112",
+    letter: "A",
+    field: "front-end",
   },
   {
     id: 2,
-    name: "Mallorie Alessandrini",
-    email: "malessandrini1@marketwatch.com",
-    letter: "M",
+    name: "Ali Birashk",
+    git: "https://github.com/Seiedsi",
+    letter: "A",
   },
   {
     id: 3,
-    name: "Elisabetta Wicklen",
-    email: "ewicklen2@microsoft.com",
-    letter: "E",
+    name: "Reza Sheikhlar",
+    git: "https://github.com/Farzan-Kh",
+    letter: "R",
   },
   {
     id: 4,
-    name: "Seka Fawdrey",
-    email: "sfawdrey3@wired.com",
-    letter: "S",
+    name: "Farzan Khalili",
+    git: "https://github.com/Farzan-Kh",
+    letter: "F",
   },
-];
-
-const offline = [
   {
     id: 5,
-    name: "Brunhilde Panswick",
-    email: "bpanswick4@csmonitor.com",
-    avatar: "avatar2.jpg",
-  },
-  {
-    id: 6,
-    name: "Winfield Stapforth",
-    email: "wstapforth5@pcworld.com",
-    avatar: "avatar6.jpg",
+    name: "Ali Balali",
+    git: "https://github.com/callmealiw20",
+    letter: "B",
   },
 ];
 
 export default {
   name: "PageAbout",
+  methods: {
+    openGithubPage(gitPageAddress) {
+      window.open(gitPageAddress, "_blank");
+    },
+  },
   setup() {
     return {
       contacts,
-      offline,
     };
   },
 };
