@@ -1,6 +1,6 @@
 <template>
-  <q-page>
-    <h4>About us</h4>
+  <q-page class="q-ma-lg">
+    <h4 class="text-weight-bold">About us</h4>
     <p>
       This is an assignment project for the Software Engineering 2, Spring 2024.
     </p>
