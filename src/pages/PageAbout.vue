@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-ma-lg">
+  <q-page class="q-ma-lg q-pa-md">
     <h4 class="text-weight-bold">About us</h4>
     <p>
       This is an assignment project for the Software Engineering 2, Spring 2024.
@@ -7,7 +7,12 @@
     <h5>Supervisor: Dr. Ehsan Shoja</h5>
     <h6>Development team</h6>
     <q-list bordered>
-      <q-item v-for="contact in contacts" :key="contact.id" class="q-my-sm">
+      <q-item
+        v-for="contact in contacts"
+        :key="contact.id"
+        clickable
+        class="q-my-sm"
+      >
         <q-item-section avatar>
           <q-avatar color="primary" text-color="white">
             {{ contact.letter }}
@@ -15,10 +20,7 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label
-            >{{ contact.name }} - {{ contact.student_no }} :
-            {{ contact.field }}</q-item-label
-          >
+          <q-item-label>{{ contact.name }}</q-item-label>
           <q-item-label caption lines="1">{{ contact.git }}</q-item-label>
         </q-item-section>
 
@@ -28,10 +30,8 @@
             color="green"
             @click="openGithubPage(contact.git)"
           >
-            <q-tooltip>
-              Open {{ contact.name }}'s Github page
-            </q-tooltip></q-icon
-          >
+            <q-tooltip> {{ contact.name }}'s Github page </q-tooltip>
+          </q-icon>
         </q-item-section>
       </q-item>
     </q-list>
@@ -50,21 +50,21 @@ const contacts = [
   },
   {
     id: 2,
-    name: "Ali Birashk",
-    git: "https://github.com/Seiedsi",
-    letter: "A",
-  },
-  {
-    id: 3,
     name: "Reza Sheikhlar",
     git: "https://github.com/rezdev-10",
     letter: "R",
   },
   {
-    id: 4,
+    id: 3,
     name: "Farzan Khalili",
     git: "https://github.com/Farzan-Kh",
     letter: "F",
+  },
+  {
+    id: 4,
+    name: "Ali Birashk",
+    git: "https://github.com/Seiedsi",
+    letter: "A",
   },
   {
     id: 5,
