@@ -44,9 +44,7 @@ const contacts = [
     id: 1,
     name: "Akbar Jalili",
     git: "https://github.com/ahbarJ",
-    student_no: "1400442112",
     letter: "A",
-    field: "front-end",
   },
   {
     id: 2,
