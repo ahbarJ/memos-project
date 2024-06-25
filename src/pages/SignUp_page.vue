@@ -17,6 +17,8 @@
           </q-card-section>
           <q-card-section>
             <q-input dense outlined v-model="fullname" type="text" Placeholder="Your name" class="q-pa-sm"></q-input>
+            <q-input dense outlined v-model="username" Placeholder="Username" :pattern="usernamePattern"
+              class="q-pa-sm" />
             <q-input dense outlined v-model="email" type="email" Placeholder="Email Address" class="q-pa-sm"></q-input>
             <q-input dense outlined v-model="password" type="password" Placeholder="Password" class="q-pa-sm">
             </q-input>
@@ -47,6 +49,8 @@ export default {
     return {
       password: '',
       reenteredPassword: '',
+      username: '',
+      usernamePattern: /^[a-zA-Z0-9_-]{3,16}$/
     };
   },
   name: "SignUp",
