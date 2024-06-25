@@ -24,6 +24,11 @@ const routes = [
   },
 
   {
+    path: "/signin",
+    component: () => import("pages/SignIn_page.vue"),
+  },
+
+  {
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
