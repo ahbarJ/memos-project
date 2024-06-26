@@ -12,28 +12,23 @@
       <q-page class="flex flex-center bg-grey-2">
         <q-card class="q-pa-md shadow-2 my_card" bordered>
           <q-card-section class="text-center">
-            <div class="dark text-h5 text-weight-bold">Sign up</div>
-            <div class="text-grey-8">Sign up below to access the website</div>
+            <div class="dark text-h5 text-weight-bold">Sign in</div>
+            <div class="text-grey-8">Sign in below to access the website</div>
           </q-card-section>
           <q-card-section>
-            <q-input dense outlined v-model="fullname" type="text" Placeholder="Your name" class="q-pa-sm"></q-input>
             <q-input dense outlined v-model="username" Placeholder="Username" :pattern="usernamePattern"
               class="q-pa-sm" />
-            <q-input dense outlined v-model="email" type="email" Placeholder="Email Address" class="q-pa-sm"></q-input>
             <q-input dense outlined v-model="password" type="password" Placeholder="Password" class="q-pa-sm">
             </q-input>
-            <q-input dense outlined v-model="reenteredPassword" type="password" Placeholder="Re-enter your password"
-              class="q-pa-sm"></q-input>
-            <q-input dense outlined v-model="date" type="date" class="q-pa-sm"></q-input>
           </q-card-section>
           <q-card-section>
-            <q-btn style="border-radius: 8px" color="primary" rounded size="md" label="Sign Up" caps class="full-width"
+            <q-btn style="border-radius: 8px" color="primary" rounded size="md" label="Sign In" caps class="full-width"
               type="submit"></q-btn>
           </q-card-section>
           <q-card-section class="text-center q-pt-none">
             <div class="text-grey-8">
-              Already have an account?
-              <a href="#" class="text-dark text-weight-bold" style="text-decoration: none">Sign in</a>
+              New to our website?
+              <a href="#" class="text-dark text-weight-bold" style="text-decoration: none">Sign up</a>
               .
             </div>
           </q-card-section>
@@ -53,7 +48,7 @@ export default {
       usernamePattern: /^[a-zA-Z0-9_-]{3,16}$/
     };
   },
-  name: "SignUp",
+  name: "SignIn",
 
 };
 /*methods: {
