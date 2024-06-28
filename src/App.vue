@@ -1,9 +1,11 @@
 <template>
-  <router-view />
+  <keep-alive>
+    <router-view />
+  </keep-alive>
 </template>
 
 <script setup>
 defineOptions({
-  name: 'App'
+  name: "App",
 });
 </script>
