@@ -29,6 +29,11 @@ const routes = [
   },
 
   {
+    path: "/verify",
+    component: () => import("pages/VerificationPage.vue"),
+  },
+
+  {
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
