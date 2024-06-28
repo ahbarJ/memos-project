@@ -24,8 +24,8 @@
           </q-card-section>
           <q-card-section class="text-center q-pt-none">
             <div class="text-grey-8">
-              New to our website?
-              <a href="#" class="text-dark text-weight-bold" style="text-decoration: none">Sign up</a>
+              Didn't recieve the code?
+              <a href="#" class="text-dark text-weight-bold" style="text-decoration: underline">Resend</a>
               .
             </div>
           </q-card-section>
@@ -39,13 +39,10 @@
 export default {
   data() {
     return {
-      password: '',
-      reenteredPassword: '',
-      username: '',
-      usernamePattern: /^[a-zA-Z0-9_-]{3,16}$/
+
     };
   },
-  name: "SignIn",
+  name: "VerificationPage",
 
 };
 </script>
