@@ -7,7 +7,7 @@
             name="fa-solid fa-dove"
             size="lg"
             color="primary"
-            class="q-pa-md, absolute-center"
+            class="q-pa-md absolute-center"
           ></q-icon>
         </q-toolbar-title>
       </q-toolbar>
@@ -119,24 +119,34 @@
     </q-page-container>
   </q-layout>
 </template>
+
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       isPwd: true,
-      fullname: null,
-      username: null,
-      email: null,
-      date: null,
-      password: null,
-      reenteredPassword: null,
+      fullname: "",
+      username: "",
+      email: "",
+      date: "",
+      password: "",
+      password_conf: "",
       usernamePattern: /^[a-zA-Z0-9_-]{3,16}$/,
     };
   },
   name: "SignUp",
+  computed: {
+    passwordFieldType() {
+      return this.showPassword ? "text" : "password";
+    },
+    toggleIcon() {
+      return this.showPassword ? "visibility_off" : "visibility";
+    },
+  },
   methods: {
-    onSubmit() {
-      if (this.password !== this.reenteredPassword) {
+    async onSubmit() {
+      if (this.password == this.reenteredPassword) {
         alert("Passwords do not match. Try again.");
         return;
       }
@@ -144,20 +154,25 @@ export default {
 
       var cred = new FormData();
       cred.append("name", this.fullname);
-      cred.append("username", this.email.substring(0, this.email.indexOf("@")));
+      cred.append("username", this.username);
       cred.append("email", this.email);
       cred.append("password", this.password);
       cred.append("birthday_date", this.date);
-      cred.append("password_conf", this.reenteredPassword);
+      cred.append("password_conf", this.password_conf);
       cred.append("user_profile", new File([""], "filename"));
+      for (let pair of cred.entries()) {
+        console.log(pair[0] + ": " + pair[1]);
+      }
       axios({
         method: "post",
         url: API,
         data: cred,
         headers: { "Content-Type": "multipart/form-data" },
       })
-        .then((res) => console.log("Data sent. response: " + res))
-        .catch((err) => console.log("Nope, error: " + err));
+        .then((res) =>
+          console.log("Data sent. response: " + JSON.stringify(res))
+        )
+        .catch((err) => console.log("Nope, error: " + JSON.stringify(err)));
     },
   },
 };

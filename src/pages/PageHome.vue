@@ -35,7 +35,7 @@
       </div>
       <q-separator size="10px" color="grey-2" class="custom-separator" />
       <q-list separator>
-        <q-item class="q-py-md" v-for="memo in memos" :key="memo.memo_date">
+        <q-item class="q-py-md" v-for="memo in memos" :key="memo.id">
           <q-item-section avatar top>
             <q-avatar>
               <q-icon name="fa-solid fa-user" size="lg" />
@@ -56,7 +56,14 @@
             <div class="row q-mt-md justify-between">
               <q-btn color="grey" icon="far fa-comment" size="sm" flat round />
               <q-btn color="grey" icon="fas fa-retweet" size="sm" flat round />
-              <q-btn color="grey" icon="far fa-heart" size="sm" flat round />
+              <q-btn
+                @click="memo.liked = memo.liked ? false : true"
+                :color="memo.liked ? 'pink' : 'grey'"
+                :icon="memo.liked ? 'fas fa-heart' : 'far fa-heart'"
+                size="sm"
+                flat
+                round
+              />
               <q-btn
                 color="grey"
                 @click="deleteMemo(memo.id)"
@@ -81,31 +88,25 @@ export default {
   data() {
     return {
       memoCap: "",
-      memos: [
-        {
-          id: 0,
-          memo_date: 1719599730770,
-          caption: "Caption for the second memo",
-          liked: false,
-        },
-        {
-          id: 1,
-          memo_date: 1719789787864,
-          caption: "Caption for the first memo",
-          liked: true,
-        },
-      ],
+      memos: [],
+      lastID: 0,
     };
   },
   methods: {
     formattedDate(currentTimestamp) {
       return formatDistance(currentTimestamp, Date.now());
     },
+    likeMemo(id) {
+      console.log("Memo to be liked id: " + id);
+    },
     addMemo() {
       let newMemo = {
+        id: this.lastID,
         caption: this.memoCap,
         memo_date: Date.now(),
+        liked: false,
       };
+      this.lastID += 1;
       console.log("Adding memo: " + newMemo);
       // post the memo
       this.memos.unshift(newMemo);
@@ -114,6 +115,8 @@ export default {
     deleteMemo(id) {
       // post to server
       console.log("Deleting memo with id: " + id);
+      let index = this.memos.find((m) => m.id === id);
+      this.memos.splice(index, 1);
     },
   },
   /*mounted() {
