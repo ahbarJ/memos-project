@@ -64,7 +64,6 @@
                 style="text-decoration: none"
                 >Sign up</a
               >
-              .
             </div>
           </q-card-section>
         </q-card>
@@ -85,11 +84,4 @@ export default {
   },
   name: "SignIn",
 };
-/*methods: {
-  submit() {
-    if (this.password === this.reenteredPassword) {
-      // Passwords match, proceed with form submission or other action
-    } else
-  };
-};*/
 </script>

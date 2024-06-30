@@ -98,6 +98,10 @@ export default {
     },
     likeMemo(id) {
       console.log("Memo to be liked id: " + id);
+      let index = this.memos.findIndex((m) => m.id === id);
+      let memoToBeLiked = this.memos[index];
+      memoToBeLiked.liked = !memoToBeLiked.liked;
+      // post to server
     },
     addMemo() {
       let newMemo = {
@@ -119,16 +123,6 @@ export default {
       this.memos.splice(index, 1);
     },
   },
-  /*mounted() {
-    const usersAPI = "http://localhost:3000/users";
-    axios
-      .get(usersAPI)
-      .then((res) => {
-        this.memos = res.data;
-        console.log("Number of memos: " + this.memos.length);
-      })
-      .catch((err) => console.log("Nope, error: " + err));
-  },*/
 };
 </script>
 
